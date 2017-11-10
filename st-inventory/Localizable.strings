@@ -1,0 +1,61 @@
+/* 
+  Localizable.strings
+  st-inventory
+
+  Created by Christophe Danguien on 2017/10/31.
+  Copyright © 2017 Philippe Benedetti. All rights reserved.
+*/
+
+// Alert
+"alert_ok" = "Ok";
+"alert_cancel" = "Cancel";
+"alert_confirm" = "Confirm";
+"alert_retry" = "Try again";
+
+// Error
+"error_label" = "Error";
+"error_starting_qr_capture" = "The device couldn't start the QR-Scanner";
+
+// Splash
+"error_fetching_destinations" = "The destinations couldn't be loaded, you need them in order to use this app";
+
+// Scanner
+"error_no_products" = "You haven't got any product";
+
+"error_product_exist" = "You have already entered that product";
+
+"button_stop_scan" = "Stop";
+"button_start_scan" = "Start";
+
+"button_select_rack" = "Select Rack";
+
+"label_searching_sku" = "Searching sku";
+
+"label_no_product_found" = "No product for that SKU found";
+
+"label_product_added" = "Product SKU added";
+
+// Validation
+"label_rack" = "Rack";
+"label_destination" = "Destination";
+
+"status_fetching_location" = "Fetching locations";
+
+"label_sending_products" = "Sending products";
+
+"success_sending_products" = "Products sent successfully";
+
+"error_sending_products" = "Your prodcuts couldn't be sent, try again or contact our support";
+
+"error_no_location" = "No location can't be found for your current destination";
+
+"error_no_location_selected" = "You need to select a location for your products";
+
+"validation_button_add_location" = "Add Location";
+
+"validation_warning_pick_location" = "You might need to pick a new location";
+
+// Rack
+"title_confirm_rack" = "Can you confirm this is the rack you wish to use";
+
+"error_no_rack" = "No rack scanned or entered";

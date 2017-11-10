@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SelectDestinationView" customModule="st_inventory" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="391"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a destination" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU6-Io-Jcy">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="MeO-l9-Rts"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hh7-Ak-VlW">
+                    <rect key="frame" x="10" y="346" width="355" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loD-Nw-Tht">
+                            <rect key="frame" x="0.0" y="1.5" width="167.5" height="32"/>
+                            <color key="backgroundColor" red="1" green="0.31868203309999998" blue="0.27113034619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAD-Qb-S1z">
+                            <rect key="frame" x="187.5" y="1.5" width="167.5" height="32"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Select">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="vQ2-jk-cyA"/>
+                    </constraints>
+                </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="6FV-su-1aw">
+                    <rect key="frame" x="8" y="61" width="359" height="269"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="2ZX-sA-wMY"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="4hb-8q-zoR"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Hh7-Ak-VlW" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-10" id="DIR-Pm-tDK"/>
+                <constraint firstItem="Hh7-Ak-VlW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="Hki-ru-6Ou"/>
+                <constraint firstItem="6FV-su-1aw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="JvG-F4-yaQ"/>
+                <constraint firstItem="Hh7-Ak-VlW" firstAttribute="top" secondItem="6FV-su-1aw" secondAttribute="bottom" constant="16" id="NXk-99-Lkk"/>
+                <constraint firstItem="vU6-Io-Jcy" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="bTM-EI-Lg9"/>
+                <constraint firstItem="vU6-Io-Jcy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="c8R-EF-sbj"/>
+                <constraint firstItem="6FV-su-1aw" firstAttribute="top" secondItem="vU6-Io-Jcy" secondAttribute="bottom" constant="16" id="eik-Cm-4CG"/>
+                <constraint firstItem="6FV-su-1aw" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-8" id="gB5-5b-T4B"/>
+                <constraint firstItem="vU6-Io-Jcy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="nFv-ar-9VD"/>
+                <constraint firstItem="Hh7-Ak-VlW" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-10" id="nSI-yI-PGE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="button_cancel" destination="loD-Nw-Tht" id="bqU-sc-Gex"/>
+                <outlet property="button_select" destination="UAD-Qb-S1z" id="oCG-qS-SQD"/>
+                <outlet property="table_view" destination="6FV-su-1aw" id="6jU-7z-BWr"/>
+            </connections>
+            <point key="canvasLocation" x="-89" y="19"/>
+        </view>
+    </objects>
+</document>
