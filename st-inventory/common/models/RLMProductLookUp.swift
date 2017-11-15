@@ -12,6 +12,8 @@ import RealmSwift
 class RLMProductLookUp: Object
 {
     @objc dynamic var _sku:String?
+    @objc dynamic var _name:String?
+
     @objc dynamic var _status_name:String?
     @objc dynamic var _status_comment:String?
     @objc dynamic var _creator:String?

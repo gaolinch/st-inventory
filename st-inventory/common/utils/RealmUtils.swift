@@ -12,7 +12,7 @@ import RealmSwift
 class RealmUtils
 {
     //MARK: Constants
-    let SCHEMA_VERSION:UInt64 = 5
+    let SCHEMA_VERSION:UInt64 = 6
     let REALM_IN_MEMORY:String = "StInventoryInMemoryRealm"
     let REALM_PERSISTENT:String = "StInventoryPersistentRealm.realm"
     

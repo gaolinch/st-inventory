@@ -53,42 +53,16 @@ class DestinationViewController: BaseViewController, UITableViewDelegate, UITabl
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool
     {
-        if self.tryLock()
-        {
-            self.releaseLockWDelay()
-
-            if self._destination_id == nil
-            {
-                return false
-            }
-            else
-            {
-                return true
-            }
-        }
-        else
-        {
-            self.releaseLockWDelay()
-
-            return false
-        }
+        return self.tryLock()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         // Create a new variable to store the instance of PlayerTableViewController
-        let destinationVC:RackViewController? = segue.destination as? RackViewController
-        if destinationVC != nil
+        let locationVC:LocationViewController? = segue.destination as? LocationViewController
+        if locationVC != nil
         {
-            destinationVC?._destination_id = self._destination_id!
-        }
-        else
-        {
-            let locationVC:LocationViewController? = segue.destination as? LocationViewController
-            if locationVC != nil
-            {
-                locationVC?._destination_id = self._destination_id!
-            }
+            locationVC?._destination_id = self._destination_id!
         }
     }
     

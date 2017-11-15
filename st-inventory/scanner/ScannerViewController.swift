@@ -137,15 +137,9 @@ class ScannerViewController: BaseScanViewController
     
     override func captureSessionMedataFound(data:String) -> Void
     {
-        if self.addProduct(sku: data)
-        {
-            self.button_scan.isHidden = false
-            
-            if self._capture_session != nil
-            {
-                self._capture_session?.stopRunning()
-            }
-        }
+        print(self.addProduct(sku: data))
+        
+        super.captureSessionMedataFound(data: data)
     }
     
     override func enteredTextfieldData(data:String) -> Void

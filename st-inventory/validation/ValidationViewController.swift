@@ -111,6 +111,52 @@ class ValidationViewController: BaseViewController
     deinit {
         print("DEALLOC ValidationViewController")
     }
+    
+    @IBAction func clickedReset(sender:UIBarButtonItem) -> Void
+    {
+        if self.tryLock()
+        {
+            let alertController:UIAlertController = UIAlertController(title: NSLocalizedString("reset_alert_title", comment: ""), message: NSLocalizedString("reset_check_confirm", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+            
+            let actionOk:UIAlertAction = UIAlertAction(title: NSLocalizedString("alert_ok", comment: ""), style: UIAlertActionStyle.default, handler:
+            {
+                [weak self] (alert: UIAlertAction!) in
+                alertController.dismiss(animated: true, completion: nil)
+                
+                let realm:Realm = RealmUtils.sharedInstance.getRealmPersistentParallel()!
+                
+                realm.beginWrite()
+                realm.delete((self?._products)!)
+                try! realm.commitWrite()
+                
+                NotificationCenter.default.post(name: Constants.NOTIFICATION_UPDATE_PRODUCT_LIST, object: nil)
+                
+                if self != nil
+                {
+                    self?.releaseLock()
+                    
+                    self?.navigationController?.popToRootViewController(animated: true)
+                }
+            })
+            
+            alertController.addAction(actionOk)
+            
+            let actionCancel:UIAlertAction = UIAlertAction(title: NSLocalizedString("alert_cancel", comment: ""), style: UIAlertActionStyle.destructive, handler:
+            {
+                [weak self] (alert: UIAlertAction!) in
+                alertController.dismiss(animated: true, completion: nil)
+                
+                if self != nil
+                {
+                    self?.releaseLock()
+                }
+            })
+            
+            alertController.addAction(actionCancel)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 
     @IBAction func clickedBack(sender:UIBarButtonItem)
     {

@@ -16,6 +16,8 @@ class ProductDetailsViewController: BaseViewController
     let SEGUE_SELECT_DESTINATION:String = "SegueProductDetailsToDestination"
     
     // MARK: - Outlets
+    @IBOutlet weak var label_product_name:UILabel!
+
     @IBOutlet weak var label_destination_name:UILabel!
     @IBOutlet weak var label_destination_code:UILabel!
     
@@ -36,6 +38,8 @@ class ProductDetailsViewController: BaseViewController
         
         let productLookUp:RLMProductLookUp! = realm.objects(RLMProductLookUp.self).filter(NSPredicate(format: "_sku = %@", argumentArray: [sku])).first!
         
+        self.label_product_name.text = productLookUp._name
+
         self.label_destination_name.text = productLookUp._destination_name
         self.label_destination_code.text = productLookUp._destination_code
         

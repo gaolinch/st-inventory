@@ -9,16 +9,10 @@
 /* Begin PBXBuildFile section */
 		661DF118A68B0E32FC2D4BBB /* Pods_st_inventory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF018BF8EB6EA85BF1D93D8D /* Pods_st_inventory.framework */; };
 		E970D8741FB5B17B00A1CC52 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E970D82C1FB5B17900A1CC52 /* Localizable.strings */; };
-		E970D8751FB5B17B00A1CC52 /* SelectLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D82E1FB5B17A00A1CC52 /* SelectLocationView.swift */; };
-		E970D8761FB5B17B00A1CC52 /* SelectLocationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E970D82F1FB5B17A00A1CC52 /* SelectLocationView.xib */; };
 		E970D8771FB5B17B00A1CC52 /* ValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D8301FB5B17A00A1CC52 /* ValidationViewController.swift */; };
 		E970D8791FB5B17B00A1CC52 /* ProductListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D8331FB5B17A00A1CC52 /* ProductListTableViewController.swift */; };
 		E970D87A1FB5B17B00A1CC52 /* DestinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D8351FB5B17A00A1CC52 /* DestinationTableViewCell.swift */; };
 		E970D87B1FB5B17B00A1CC52 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D8361FB5B17A00A1CC52 /* DestinationViewController.swift */; };
-		E970D87C1FB5B17B00A1CC52 /* LookUpResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D8381FB5B17A00A1CC52 /* LookUpResultTableViewCell.swift */; };
-		E970D87D1FB5B17B00A1CC52 /* LookUpResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E970D8391FB5B17A00A1CC52 /* LookUpResultTableViewCell.xib */; };
-		E970D87E1FB5B17B00A1CC52 /* LookUpResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D83A1FB5B17A00A1CC52 /* LookUpResultView.swift */; };
-		E970D87F1FB5B17B00A1CC52 /* LookUpResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E970D83B1FB5B17A00A1CC52 /* LookUpResultView.xib */; };
 		E970D8801FB5B17B00A1CC52 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D83C1FB5B17A00A1CC52 /* ScannerViewController.swift */; };
 		E970D8811FB5B17B00A1CC52 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D83E1FB5B17A00A1CC52 /* ProductDetailsViewController.swift */; };
 		E970D8821FB5B17B00A1CC52 /* RackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E970D8401FB5B17A00A1CC52 /* RackViewController.swift */; };
@@ -88,16 +82,10 @@
 		9023331EF9693FE4484B6752 /* Pods-st-inventory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-st-inventory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-st-inventory/Pods-st-inventory.debug.xcconfig"; sourceTree = "<group>"; };
 		BF018BF8EB6EA85BF1D93D8D /* Pods_st_inventory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_st_inventory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E970D82C1FB5B17900A1CC52 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		E970D82E1FB5B17A00A1CC52 /* SelectLocationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectLocationView.swift; sourceTree = "<group>"; };
-		E970D82F1FB5B17A00A1CC52 /* SelectLocationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectLocationView.xib; sourceTree = "<group>"; };
 		E970D8301FB5B17A00A1CC52 /* ValidationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationViewController.swift; sourceTree = "<group>"; };
 		E970D8331FB5B17A00A1CC52 /* ProductListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListTableViewController.swift; sourceTree = "<group>"; };
 		E970D8351FB5B17A00A1CC52 /* DestinationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationTableViewCell.swift; sourceTree = "<group>"; };
 		E970D8361FB5B17A00A1CC52 /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
-		E970D8381FB5B17A00A1CC52 /* LookUpResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookUpResultTableViewCell.swift; sourceTree = "<group>"; };
-		E970D8391FB5B17A00A1CC52 /* LookUpResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookUpResultTableViewCell.xib; sourceTree = "<group>"; };
-		E970D83A1FB5B17A00A1CC52 /* LookUpResultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookUpResultView.swift; sourceTree = "<group>"; };
-		E970D83B1FB5B17A00A1CC52 /* LookUpResultView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookUpResultView.xib; sourceTree = "<group>"; };
 		E970D83C1FB5B17A00A1CC52 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		E970D83E1FB5B17A00A1CC52 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		E970D8401FB5B17A00A1CC52 /* RackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RackViewController.swift; sourceTree = "<group>"; };
@@ -200,8 +188,6 @@
 		E970D82D1FB5B17A00A1CC52 /* validation */ = {
 			isa = PBXGroup;
 			children = (
-				E970D82E1FB5B17A00A1CC52 /* SelectLocationView.swift */,
-				E970D82F1FB5B17A00A1CC52 /* SelectLocationView.xib */,
 				E970D8301FB5B17A00A1CC52 /* ValidationViewController.swift */,
 			);
 			path = validation;
@@ -227,10 +213,6 @@
 		E970D8371FB5B17A00A1CC52 /* scanner */ = {
 			isa = PBXGroup;
 			children = (
-				E970D8381FB5B17A00A1CC52 /* LookUpResultTableViewCell.swift */,
-				E970D8391FB5B17A00A1CC52 /* LookUpResultTableViewCell.xib */,
-				E970D83A1FB5B17A00A1CC52 /* LookUpResultView.swift */,
-				E970D83B1FB5B17A00A1CC52 /* LookUpResultView.xib */,
 				E970D83C1FB5B17A00A1CC52 /* ScannerViewController.swift */,
 			);
 			path = scanner;
@@ -457,6 +439,7 @@
 				EC0B672B1F95A3920093750D /* Resources */,
 				015E25F428312D70FBBC28FC /* [CP] Embed Pods Frameworks */,
 				B2333708517F97368760A7BF /* [CP] Copy Pods Resources */,
+				E9C173C11FBB416400335302 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -558,11 +541,8 @@
 				EC0B673B1F95A3920093750D /* LaunchScreen.storyboard in Resources */,
 				E970D89F1FB5B17B00A1CC52 /* ToastTopView.xib in Resources */,
 				E970D8A01FB5B17B00A1CC52 /* LaunchScreen.storyboard in Resources */,
-				E970D87F1FB5B17B00A1CC52 /* LookUpResultView.xib in Resources */,
 				E970D8741FB5B17B00A1CC52 /* Localizable.strings in Resources */,
-				E970D8761FB5B17B00A1CC52 /* SelectLocationView.xib in Resources */,
 				E970D8A61FB5B17B00A1CC52 /* Splash.storyboard in Resources */,
-				E970D87D1FB5B17B00A1CC52 /* LookUpResultTableViewCell.xib in Resources */,
 				E970D89B1FB5B17B00A1CC52 /* SelectDestinationView.xib in Resources */,
 				E970D8A11FB5B17B00A1CC52 /* Main.storyboard in Resources */,
 				E970D8881FB5B17B00A1CC52 /* AlertSuccessView.xib in Resources */,
@@ -653,6 +633,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E9C173C11FBB416400335302 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 849e113e815e68bb4e83a02b2ceae61c2e18a40f 9112acd0424610549f0aa8cf605a9ec430d81a124e86a781254f7fc7e6971bad";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -674,7 +667,6 @@
 				E970D87A1FB5B17B00A1CC52 /* DestinationTableViewCell.swift in Sources */,
 				E970D8811FB5B17B00A1CC52 /* ProductDetailsViewController.swift in Sources */,
 				E970D8931FB5B17B00A1CC52 /* Constants.swift in Sources */,
-				E970D8751FB5B17B00A1CC52 /* SelectLocationView.swift in Sources */,
 				E970D8901FB5B17B00A1CC52 /* BaseScanViewController.swift in Sources */,
 				E970D8A31FB5B17B00A1CC52 /* LocationViewController.swift in Sources */,
 				E970D8A51FB5B17B00A1CC52 /* ProductViewController.swift in Sources */,
@@ -684,7 +676,6 @@
 				EC0B67311F95A3920093750D /* AppDelegate.swift in Sources */,
 				E970D8791FB5B17B00A1CC52 /* ProductListTableViewController.swift in Sources */,
 				E970D89A1FB5B17B00A1CC52 /* SelectDestinationView.swift in Sources */,
-				E970D87C1FB5B17B00A1CC52 /* LookUpResultTableViewCell.swift in Sources */,
 				E970D8841FB5B17B00A1CC52 /* AlertErrorView.swift in Sources */,
 				E970D8771FB5B17B00A1CC52 /* ValidationViewController.swift in Sources */,
 				E970D8891FB5B17B00A1CC52 /* AlertWarningView.swift in Sources */,
@@ -695,7 +686,6 @@
 				E970D8921FB5B17B00A1CC52 /* BaseViewController.swift in Sources */,
 				E970D8A41FB5B17B00A1CC52 /* MainMenuViewController.swift in Sources */,
 				E970D8871FB5B17B00A1CC52 /* AlertSuccessView.swift in Sources */,
-				E970D87E1FB5B17B00A1CC52 /* LookUpResultView.swift in Sources */,
 				E970D88D1FB5B17B00A1CC52 /* ProductApi.swift in Sources */,
 				E970D8821FB5B17B00A1CC52 /* RackViewController.swift in Sources */,
 			);
@@ -889,7 +879,7 @@
 				INFOPLIST_FILE = "st-inventory/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "PBEN.st-inventory";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.st-inventory.staff";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -910,7 +900,7 @@
 				INFOPLIST_FILE = "st-inventory/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "PBEN.st-inventory";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.st-inventory.staff";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

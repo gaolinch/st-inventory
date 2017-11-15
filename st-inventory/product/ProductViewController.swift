@@ -72,6 +72,29 @@ class ProductViewController: BaseScanViewController
             
             if status == Constants.CompletionStatus.Success
             {
+                self?.fetchExtraInfo(sku: sku)
+            }
+            else
+            {
+                self?.showSimpleAlert(message: NSLocalizedString("label_no_product_found", comment: ""))
+                
+                self?.releaseLock()
+                
+                SVProgressHUD.dismiss()
+            }
+        }
+        
+        ProductApi.findProduct(sku: sku, completion: completion)
+    }
+    
+    private func fetchExtraInfo(sku:String) -> Void
+    {
+        let completion:(Constants.CompletionStatus) -> Void = {
+            
+            [weak self] (status:Constants.CompletionStatus) -> Void in
+            
+            if status == Constants.CompletionStatus.Success
+            {
                 self?._product_sku = sku
                 
                 self?.performSegue(withIdentifier: (self?.SEGUE_PRODUCT_DETAILS)!, sender: nil)
@@ -86,6 +109,6 @@ class ProductViewController: BaseScanViewController
             SVProgressHUD.dismiss()
         }
         
-        ProductApi.findProduct(sku: sku, completion: completion)
+        ProductApi.fetchExtraInfo(sku: sku, completion: completion)
     }
 }

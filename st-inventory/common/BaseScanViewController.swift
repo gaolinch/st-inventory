@@ -15,6 +15,8 @@ class BaseScanViewController: BaseViewController, AVCaptureMetadataOutputObjects
     // MARK: - Outlets
     @IBOutlet weak var view_scanner_container:UIView!
     
+    @IBOutlet weak var view_hide_scanner:UIView!
+    
     @IBOutlet weak var button_scan:UIButton!
     
     // MARK: - Class attributes
@@ -118,6 +120,8 @@ class BaseScanViewController: BaseViewController, AVCaptureMetadataOutputObjects
         {
             if text! != ""
             {
+                textField.text = ""
+
                 self.enteredTextfieldData(data: text!)
             }
         }
@@ -133,6 +137,8 @@ class BaseScanViewController: BaseViewController, AVCaptureMetadataOutputObjects
                 self._capture_session!.startRunning()
                 
                 self.button_scan.isHidden = true
+                
+                self.view_hide_scanner.isHidden = true
             }
         }
     }
@@ -161,6 +167,8 @@ class BaseScanViewController: BaseViewController, AVCaptureMetadataOutputObjects
     {
         self.button_scan.isHidden = false
         
+        self.view_hide_scanner.isHidden = false
+        
         if self._capture_session != nil
         {
             self._capture_session?.stopRunning()
@@ -169,7 +177,6 @@ class BaseScanViewController: BaseViewController, AVCaptureMetadataOutputObjects
     
     func enteredTextfieldData(data:String) -> Void
     {
-        
     }
     /*
     // MARK: - Navigation

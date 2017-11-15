@@ -121,6 +121,53 @@ class ProductApi: NSObject
         })
     }
     
+    static func fetchExtraInfo(sku:String, completion: ((Constants.CompletionStatus)->Void)!) -> Void
+    {
+        let routerRequest:URLRequestConvertible = Router.fetchExtraInfo(sku: sku)
+        
+        let dataRequest:DataRequest = Alamofire.request(routerRequest)
+        dataRequest.responseJSON(completionHandler:
+            {
+                response in
+                print(response.request as Any)  // original URL request
+                print(response.response as Any) // URL response
+                print(response.data as Any)     // server data
+                print(response.result)   // result of response serialization
+                
+                var isSuccess:Bool = false
+                
+                if response.data != nil
+                {
+                    print(response.data as Any)
+                    
+                    let json:JSON = JSON(response.result.value as Any)
+                    print(json)
+                    if json != JSON.null
+                    {
+                        let realmMemory:Realm = RealmUtils.sharedInstance.getRealmInMemory()!
+                        
+                        // Remove previous products looked up
+                        realmMemory.beginWrite()
+                        
+                        let product:RLMProductLookUp = realmMemory.object(ofType: RLMProductLookUp.self, forPrimaryKey: sku)!
+                        
+                        product._name = json[Constants.KEY_NAME].string
+                        
+                        try! realmMemory.commitWrite()
+                        
+                        isSuccess = true
+                        
+                        completion(Constants.CompletionStatus.Success)
+                    }
+                }
+                
+                if !isSuccess
+                {
+                    completion(Constants.CompletionStatus.Failure)
+                }
+        })
+    }
+    
     static func submit(parameters:Parameters, completion: ((Constants.CompletionStatus)->Void)!) -> Void
     {
         let routerRequest:URLRequestConvertible = Router.submit(parameters: parameters)
@@ -158,15 +205,18 @@ class ProductApi: NSObject
     enum Router: URLRequestConvertible
     {
         case findProduct(sku:String)
+        case fetchExtraInfo(sku:String)
         case submit(parameters:Parameters)
         
-        static let baseURLString = Constants.BASE_URL + "/inventory"
+        static let baseURLString = Constants.BASE_URL
 
         var method: HTTPMethod
         {
             switch self
             {
             case .findProduct:
+                return .get
+            case .fetchExtraInfo:
                 return .get
             case .submit:
                 return .post
@@ -178,9 +228,11 @@ class ProductApi: NSObject
             switch self
             {
             case .findProduct(let sku):
-                return "/event/sku/\(sku)"
+                return "/inventory/event/sku/\(sku)"
+            case .fetchExtraInfo(let sku):
+                return "/admin/product/sku/\(sku)"
             case .submit:
-                return "batch"
+                return "/inventory/batch"
             }
         }
         

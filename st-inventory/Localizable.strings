@@ -59,3 +59,7 @@
 "title_confirm_rack" = "Can you confirm this is the rack you wish to use";
 
 "error_no_rack" = "No rack scanned or entered";
+
+// Reset
+"reset_alert_title" = "Reset";
+"reset_check_confirm" = "Are you sure you want to reset all and lose the products you have entered?";
