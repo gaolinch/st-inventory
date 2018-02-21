@@ -21,7 +21,7 @@ class CollectionTableViewController: BaseTableTableViewController
     {
         super.viewDidLoad()
         
-        self._list_collections = RealmUtils.sharedInstance.getRealmInMemory()!.objects(RLMCollection.self)
+        self._list_collections = RealmUtils.sharedInstance.getRealmPersistentParallel()!.objects(RLMCollection.self)
         
         self._list_collection_change_listener = self._list_collections!.observe
             {
