@@ -11,7 +11,7 @@ import UIKit
 class CollectionTableViewCell: UITableViewCell
 {
     // MARK: - Class attributes
-    @IBOutlet weak var label_barcode:UILabel!
+    @IBOutlet weak var label_collection_id:UILabel!
     @IBOutlet weak var label_status:UILabel!
     @IBOutlet weak var label_num_products:UILabel!
 

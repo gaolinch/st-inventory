@@ -2,8 +2,8 @@
 //  CollectionApi.swift
 //  st-inventory
 //
-//  Created by Christophe Danguien on 2018/02/22.
-//  Copyright © 2018 Philippe Benedetti. All rights reserved.
+//  Created by Christophe Danguien on 2017/11/03.
+//  Copyright © 2017 Philippe Benedetti. All rights reserved.
 //
 
 import UIKit
@@ -37,55 +37,34 @@ class CollectionApi: NSObject
                     print(json as Any)
                     if json != JSON.null
                     {
-                        if json![Constants.KEY_DATA].exists()
-                        {
-                            let data:[JSON]? = json![Constants.KEY_DATA].array
+                       // if json![Constants.KEY_DATA].exists()
+                       // {
+                            let data:[JSON]? = json!.array
                             if data != nil
                             {
-                                let realm:Realm = RealmUtils.sharedInstance.getRealmInMemory()!
+                                let realm:Realm = RealmUtils.sharedInstance.getRealmPersistentParallel()!
                                 
-                                realm.beginWrite()
-                                
-                                for destinationJson in data!
+                                try! realm.write
                                 {
-                                    let destinationId:Int? = destinationJson[Constants.KEY_DESTINATION_ID].int
-                                    let code:String? = destinationJson[Constants.KEY_CODE].string
-                                    
-                                    let destinationType:JSON? = JSON(destinationJson[Constants.KEY_DESTINATION_TYPE].dictionaryObject as Any)
-                                    
-                                    if destinationType != JSON.null
+                                    for collectionJson in data!
                                     {
-                                        let typeId:Int? = destinationType![Constants.KEY_DESTINATION_TYPE_ID].int
-                                        let typeName:String? = destinationType![Constants.KEY_NAME].string
+                                        let collectionId:String? = collectionJson[Constants.KEY_COLLECTION_NAME].string
                                         
-                                        if destinationId != nil && code != nil && typeId != nil && typeName != nil
-                                        {
-                                            let destination:RLMDestination = RLMDestination()
-                                            destination._destination_id = destinationId!
-                                            destination._code = code!
-                                            destination._type_id = typeId!
-                                            destination._type_name = typeName!
-                                            
-                                            var createdDateInt:Int? = destinationJson[Constants.KEY_CREATED_DATE].int
-                                            if createdDateInt != nil
-                                            {
-                                                createdDateInt = createdDateInt! / 1000
-                                                
-                                                destination._created_date = Date(timeIntervalSince1970: TimeInterval(createdDateInt!))
-                                            }
-                                            
-                                            realm.add(destination)
-                                        }
+                                        let collection:RLMCollection = RLMCollection()
+                                        collection._collection_id = collectionId!
+                                        
+                                        realm.add(collection, update: true)
                                     }
                                 }
                                 
-                                try! realm.commitWrite()
-                                
-                                isSuccess = true
-                                
-                                completion(Constants.CompletionStatus.Success)
+                                defer
+                                {
+                                    isSuccess = true
+                                    
+                                    completion(Constants.CompletionStatus.Success)
+                                }
                             }
-                        }
+                        //}
                     }
                 }
                 
@@ -100,7 +79,7 @@ class CollectionApi: NSObject
     {
         case fetchAll()
         
-        static let baseURLString = Constants.BASE_URL + "/inventory"
+        static let baseURLString = Constants.BASE_URL + ""
         
         var method: HTTPMethod {
             switch self {
@@ -108,11 +87,11 @@ class CollectionApi: NSObject
                 return .get
             }
         }
-        
+
         var path: String {
             switch self {
             case .fetchAll:
-                return "/destinations?size=20&page=1&sortCriteria=code-DESC&q=code-DEST"
+                return "/admin/collections"
             }
         }
         
@@ -125,7 +104,7 @@ class CollectionApi: NSObject
             urlRequest.timeoutInterval = Constants.HEADER_TIME_OUT
             urlRequest.addValue(Constants.HEADER_CONTENT_TYPE, forHTTPHeaderField: Constants.KEY_CONTENT_TYPE)
             urlRequest.addValue(Constants.HEADER_APP_NAME, forHTTPHeaderField: Constants.KEY_APP_NAME)
-            urlRequest.addValue(Constants.HEADER_APP_TOKEN, forHTTPHeaderField: Constants.KEY_APP_TOKEN)
+            urlRequest.addValue(Constants.HEADER_APP_TOKEN_COLLECTION, forHTTPHeaderField: Constants.KEY_APP_TOKEN_COLLECTION)
             
             urlRequest.httpMethod = method.rawValue
             urlRequest.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
@@ -133,7 +112,7 @@ class CollectionApi: NSObject
             switch self
             {
             case .fetchAll():
-                urlRequest.url = URL(string: "https://temptest.styletribute.com/inventory/destinations?size=30&page=1&sortCriteria=code-DESC&q=code-DEST")
+                urlRequest.url = URL(string: "https://temptest.styletribute.com/admin/collections")
                 break
             }
             
@@ -143,4 +122,3 @@ class CollectionApi: NSObject
         }
     }
 }
-

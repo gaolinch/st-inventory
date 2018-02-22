@@ -65,6 +65,7 @@
 		EC0B673B1F95A3920093750D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0B67391F95A3920093750D /* LaunchScreen.storyboard */; };
 		EC0B67461F95A3920093750D /* st_inventoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B67451F95A3920093750D /* st_inventoryTests.swift */; };
 		EC0B67511F95A3920093750D /* st_inventoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B67501F95A3920093750D /* st_inventoryUITests.swift */; };
+		EC704762203E9F4D0015E787 /* CollectionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC704761203E9F4D0015E787 /* CollectionApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		EC0B674C1F95A3920093750D /* st-inventoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "st-inventoryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0B67501F95A3920093750D /* st_inventoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = st_inventoryUITests.swift; sourceTree = "<group>"; };
 		EC0B67521F95A3920093750D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC704761203E9F4D0015E787 /* CollectionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionApi.swift; sourceTree = "<group>"; };
 		F36752AB6F6016E6BB529C15 /* Pods-st-inventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-st-inventory.release.xcconfig"; path = "Pods/Target Support Files/Pods-st-inventory/Pods-st-inventory.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -281,6 +283,7 @@
 		E970D84B1FB5B17A00A1CC52 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				EC704761203E9F4D0015E787 /* CollectionApi.swift */,
 				E970D84C1FB5B17A00A1CC52 /* DestinationApi.swift */,
 				E970D84D1FB5B17A00A1CC52 /* LocationApi.swift */,
 				E970D84E1FB5B17A00A1CC52 /* ProductApi.swift */,
@@ -302,11 +305,11 @@
 		E970D8571FB5B17A00A1CC52 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				E9C72510203DF499002CE44B /* RLMCollection.swift */,
 				E970D8581FB5B17A00A1CC52 /* RLMDestination.swift */,
 				E970D8591FB5B17A00A1CC52 /* RLMLocation.swift */,
 				E970D85A1FB5B17A00A1CC52 /* RLMProduct.swift */,
 				E970D85B1FB5B17A00A1CC52 /* RLMProductLookUp.swift */,
-				E9C72510203DF499002CE44B /* RLMCollection.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				E970D87B1FB5B17B00A1CC52 /* DestinationViewController.swift in Sources */,
 				E9C72511203DF499002CE44B /* RLMCollection.swift in Sources */,
 				E970D88F1FB5B17B00A1CC52 /* UtilityApi.swift in Sources */,
+				EC704762203E9F4D0015E787 /* CollectionApi.swift in Sources */,
 				E970D89C1FB5B17B00A1CC52 /* SelectDestLocTableViewCell.swift in Sources */,
 				E970D8A71FB5B17B00A1CC52 /* SplashViewController.swift in Sources */,
 				E970D8971FB5B17B00A1CC52 /* RLMProduct.swift in Sources */,
@@ -909,7 +913,7 @@
 					"$(PROJECT_DIR)/st-inventory/common/frameworks",
 				);
 				INFOPLIST_FILE = "st-inventory/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.st-inventory.staff";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -930,7 +934,7 @@
 					"$(PROJECT_DIR)/st-inventory/common/frameworks",
 				);
 				INFOPLIST_FILE = "st-inventory/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.st-inventory.staff";
 				PRODUCT_NAME = "$(TARGET_NAME)";

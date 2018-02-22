@@ -12,6 +12,10 @@ import RealmSwift
 
 class CollectionTableViewController: BaseTableTableViewController
 {
+    
+    // MARK: - Constants
+    let CELL_IDENTIFIER:String = "CollectionTableViewCell"
+    
     // MARK: - Class attributes
     var _list_collections:Results<RLMCollection>?
     
@@ -22,6 +26,8 @@ class CollectionTableViewController: BaseTableTableViewController
         super.viewDidLoad()
         
         self._list_collections = RealmUtils.sharedInstance.getRealmPersistentParallel()!.objects(RLMCollection.self)
+        
+        print("\(self._list_collections!.count)")
         
         self._list_collection_change_listener = self._list_collections!.observe
             {
@@ -93,14 +99,19 @@ class CollectionTableViewController: BaseTableTableViewController
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var cell:CollectionTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "CollectionTableViewCell", for: indexPath) as? CollectionTableViewCell
-
+        var cell:CollectionTableViewCell? = tableView.dequeueReusableCell(withIdentifier: CELL_IDENTIFIER, for: indexPath) as? CollectionTableViewCell
+        
         if cell == nil
         {
             cell = CollectionTableViewCell()
         }
+        
         // Configure the cell...
-
+        let collection:RLMCollection = self._list_collections![indexPath.row]
+        
+        cell!.label_collection_id!.text = collection._collection_id!
+        cell!.label_status.text = "dsadasdas"
+        
         return cell!
     }
 
@@ -124,7 +135,7 @@ class CollectionTableViewController: BaseTableTableViewController
             if indexPath != nil
             {
                 let collection:RLMCollection = self._list_collections![indexPath!.row]
-                viewController?._collection_id = collection._sku
+                viewController?._collection_id = collection._collection_id
             }
         }
     }
