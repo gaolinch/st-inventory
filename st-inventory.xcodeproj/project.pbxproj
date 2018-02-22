@@ -59,6 +59,7 @@
 		E9C7250D203DF274002CE44B /* CollectionAddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C7250C203DF274002CE44B /* CollectionAddProductViewController.swift */; };
 		E9C7250F203DF2B9002CE44B /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C7250E203DF2B9002CE44B /* CollectionTableViewCell.swift */; };
 		E9C72511203DF499002CE44B /* RLMCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C72510203DF499002CE44B /* RLMCollection.swift */; };
+		E9C72513203ECB0A002CE44B /* CollectionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C72512203ECB0A002CE44B /* CollectionApi.swift */; };
 		EC0B67311F95A3920093750D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B67301F95A3920093750D /* AppDelegate.swift */; };
 		EC0B67361F95A3920093750D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0B67341F95A3920093750D /* Main.storyboard */; };
 		EC0B673B1F95A3920093750D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0B67391F95A3920093750D /* LaunchScreen.storyboard */; };
@@ -137,6 +138,7 @@
 		E9C7250C203DF274002CE44B /* CollectionAddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAddProductViewController.swift; sourceTree = "<group>"; };
 		E9C7250E203DF2B9002CE44B /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		E9C72510203DF499002CE44B /* RLMCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMCollection.swift; sourceTree = "<group>"; };
+		E9C72512203ECB0A002CE44B /* CollectionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionApi.swift; sourceTree = "<group>"; };
 		EC0B672D1F95A3920093750D /* st-inventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "st-inventory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0B67301F95A3920093750D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC0B67351F95A3920093750D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				E970D84E1FB5B17A00A1CC52 /* ProductApi.swift */,
 				E970D84F1FB5B17A00A1CC52 /* TestApi.swift */,
 				E970D8501FB5B17A00A1CC52 /* UtilityApi.swift */,
+				E9C72512203ECB0A002CE44B /* CollectionApi.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				E970D8911FB5B17B00A1CC52 /* BaseTableTableViewController.swift in Sources */,
 				E970D8991FB5B17B00A1CC52 /* RealmUtils.swift in Sources */,
 				E970D89E1FB5B17B00A1CC52 /* ToastTopView.swift in Sources */,
+				E9C72513203ECB0A002CE44B /* CollectionApi.swift in Sources */,
 				E970D8921FB5B17B00A1CC52 /* BaseViewController.swift in Sources */,
 				E970D8A41FB5B17B00A1CC52 /* MainMenuViewController.swift in Sources */,
 				E970D8871FB5B17B00A1CC52 /* AlertSuccessView.swift in Sources */,
