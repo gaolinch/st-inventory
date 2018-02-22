@@ -12,12 +12,23 @@
 "alert_confirm" = "Confirm";
 "alert_retry" = "Try again";
 
+"alert_loading" = "Loading";
+"alert_uploading" = "Uploading";
+"alert_updating" = "Updating";
+"alert_refreshing" = "Refreshing";
+
 // Error
 "error_label" = "Error";
 "error_starting_qr_capture" = "The device couldn't start the QR-Scanner";
 
 // Splash
 "error_fetching_destinations" = "The destinations couldn't be loaded, you need them in order to use this app";
+
+// Collection
+"collection_no_product_fetched" = "The products couldn't be fetched, please try again";
+"collection_num_product" = "NUM products";
+
+"collection_product_not_added" = "The product couldn't be added, can you try another one";
 
 // Scanner
 "error_no_products" = "You haven't got any product";

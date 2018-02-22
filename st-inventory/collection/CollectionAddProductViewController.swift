@@ -8,29 +8,61 @@
 
 import UIKit
 
-class CollectionAddProductViewController: UIViewController
-{
+import RealmSwift
 
-    override func viewDidLoad() {
+import SVProgressHUD
+
+class CollectionAddProductViewController: BaseScanViewController
+{
+    // MARK: - Class attribute
+    var _collection_id:String?
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func enteredTextfieldData(data:String) -> Void
+    {
+        if self.tryLock()
+        {
+            SVProgressHUD.show(withStatus: NSLocalizedString("alert_updating", comment: ""))
+            
+            let completion:(Constants.CompletionStatus) -> Void = {
+                
+                [weak self] (status:Constants.CompletionStatus) -> Void in
+                
+                if status == Constants.CompletionStatus.Success
+                {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+                else
+                {
+                    self?.showSimpleAlert(message: NSLocalizedString("collection_product_not_added", comment: ""))
+                }
+                
+                self?.releaseLock()
+                
+                SVProgressHUD.dismiss()
+            }
+            
+            CollectionApi.addProduct(sku: data, collectionId: self._collection_id!, completion: completion)
+        }
     }
-    */
-
+    
+    @IBAction func clickedBack(sender:UIBarButtonItem) -> Void
+    {
+        if self.tryLock()
+        {
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
 }

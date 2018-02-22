@@ -59,13 +59,15 @@
 		E9C7250D203DF274002CE44B /* CollectionAddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C7250C203DF274002CE44B /* CollectionAddProductViewController.swift */; };
 		E9C7250F203DF2B9002CE44B /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C7250E203DF2B9002CE44B /* CollectionTableViewCell.swift */; };
 		E9C72511203DF499002CE44B /* RLMCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C72510203DF499002CE44B /* RLMCollection.swift */; };
-		E9C72513203ECB0A002CE44B /* CollectionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C72512203ECB0A002CE44B /* CollectionApi.swift */; };
+		E9C72515203ECF42002CE44B /* CollectionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C72514203ECF42002CE44B /* CollectionApi.swift */; };
+		E9C72517203ED53D002CE44B /* CollectionProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C72516203ED53D002CE44B /* CollectionProductTableViewCell.swift */; };
+		E9C72519203EDE60002CE44B /* RLMCollectionProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C72518203EDE60002CE44B /* RLMCollectionProduct.swift */; };
+		E9C7251B203F112F002CE44B /* RLMCollectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C7251A203F112F002CE44B /* RLMCollectionStatus.swift */; };
 		EC0B67311F95A3920093750D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B67301F95A3920093750D /* AppDelegate.swift */; };
 		EC0B67361F95A3920093750D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0B67341F95A3920093750D /* Main.storyboard */; };
 		EC0B673B1F95A3920093750D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC0B67391F95A3920093750D /* LaunchScreen.storyboard */; };
 		EC0B67461F95A3920093750D /* st_inventoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B67451F95A3920093750D /* st_inventoryTests.swift */; };
 		EC0B67511F95A3920093750D /* st_inventoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0B67501F95A3920093750D /* st_inventoryUITests.swift */; };
-		EC704762203E9F4D0015E787 /* CollectionApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC704761203E9F4D0015E787 /* CollectionApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,7 +141,10 @@
 		E9C7250C203DF274002CE44B /* CollectionAddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionAddProductViewController.swift; sourceTree = "<group>"; };
 		E9C7250E203DF2B9002CE44B /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		E9C72510203DF499002CE44B /* RLMCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMCollection.swift; sourceTree = "<group>"; };
-		E9C72512203ECB0A002CE44B /* CollectionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionApi.swift; sourceTree = "<group>"; };
+		E9C72514203ECF42002CE44B /* CollectionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionApi.swift; sourceTree = "<group>"; };
+		E9C72516203ED53D002CE44B /* CollectionProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionProductTableViewCell.swift; sourceTree = "<group>"; };
+		E9C72518203EDE60002CE44B /* RLMCollectionProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMCollectionProduct.swift; sourceTree = "<group>"; };
+		E9C7251A203F112F002CE44B /* RLMCollectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMCollectionStatus.swift; sourceTree = "<group>"; };
 		EC0B672D1F95A3920093750D /* st-inventory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "st-inventory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0B67301F95A3920093750D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC0B67351F95A3920093750D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,7 +156,6 @@
 		EC0B674C1F95A3920093750D /* st-inventoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "st-inventoryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0B67501F95A3920093750D /* st_inventoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = st_inventoryUITests.swift; sourceTree = "<group>"; };
 		EC0B67521F95A3920093750D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC704761203E9F4D0015E787 /* CollectionApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionApi.swift; sourceTree = "<group>"; };
 		F36752AB6F6016E6BB529C15 /* Pods-st-inventory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-st-inventory.release.xcconfig"; path = "Pods/Target Support Files/Pods-st-inventory/Pods-st-inventory.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,13 +287,12 @@
 		E970D84B1FB5B17A00A1CC52 /* api */ = {
 			isa = PBXGroup;
 			children = (
-				EC704761203E9F4D0015E787 /* CollectionApi.swift */,
 				E970D84C1FB5B17A00A1CC52 /* DestinationApi.swift */,
 				E970D84D1FB5B17A00A1CC52 /* LocationApi.swift */,
 				E970D84E1FB5B17A00A1CC52 /* ProductApi.swift */,
 				E970D84F1FB5B17A00A1CC52 /* TestApi.swift */,
 				E970D8501FB5B17A00A1CC52 /* UtilityApi.swift */,
-				E9C72512203ECB0A002CE44B /* CollectionApi.swift */,
+				E9C72514203ECF42002CE44B /* CollectionApi.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -310,6 +313,8 @@
 				E970D8591FB5B17A00A1CC52 /* RLMLocation.swift */,
 				E970D85A1FB5B17A00A1CC52 /* RLMProduct.swift */,
 				E970D85B1FB5B17A00A1CC52 /* RLMProductLookUp.swift */,
+				E9C72518203EDE60002CE44B /* RLMCollectionProduct.swift */,
+				E9C7251A203F112F002CE44B /* RLMCollectionStatus.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				E9C7250A203DDE2F002CE44B /* CollectionProductsTableViewController.swift */,
 				E9C7250C203DF274002CE44B /* CollectionAddProductViewController.swift */,
 				E9C7250E203DF2B9002CE44B /* CollectionTableViewCell.swift */,
+				E9C72516203ED53D002CE44B /* CollectionProductTableViewCell.swift */,
 			);
 			path = collection;
 			sourceTree = "<group>";
@@ -689,13 +695,13 @@
 				E970D87B1FB5B17B00A1CC52 /* DestinationViewController.swift in Sources */,
 				E9C72511203DF499002CE44B /* RLMCollection.swift in Sources */,
 				E970D88F1FB5B17B00A1CC52 /* UtilityApi.swift in Sources */,
-				EC704762203E9F4D0015E787 /* CollectionApi.swift in Sources */,
 				E970D89C1FB5B17B00A1CC52 /* SelectDestLocTableViewCell.swift in Sources */,
 				E970D8A71FB5B17B00A1CC52 /* SplashViewController.swift in Sources */,
 				E970D8971FB5B17B00A1CC52 /* RLMProduct.swift in Sources */,
 				E970D8861FB5B17B00A1CC52 /* AlertMessage.swift in Sources */,
 				E9C7250B203DDE2F002CE44B /* CollectionProductsTableViewController.swift in Sources */,
 				E970D8831FB5B17B00A1CC52 /* AlertConfig.swift in Sources */,
+				E9C72517203ED53D002CE44B /* CollectionProductTableViewCell.swift in Sources */,
 				E970D88B1FB5B17B00A1CC52 /* DestinationApi.swift in Sources */,
 				E970D87A1FB5B17B00A1CC52 /* DestinationTableViewCell.swift in Sources */,
 				E970D8811FB5B17B00A1CC52 /* ProductDetailsViewController.swift in Sources */,
@@ -703,6 +709,7 @@
 				E9C7250D203DF274002CE44B /* CollectionAddProductViewController.swift in Sources */,
 				E970D8901FB5B17B00A1CC52 /* BaseScanViewController.swift in Sources */,
 				E970D8A31FB5B17B00A1CC52 /* LocationViewController.swift in Sources */,
+				E9C72519203EDE60002CE44B /* RLMCollectionProduct.swift in Sources */,
 				E970D8A51FB5B17B00A1CC52 /* ProductViewController.swift in Sources */,
 				E970D88C1FB5B17B00A1CC52 /* LocationApi.swift in Sources */,
 				E970D88E1FB5B17B00A1CC52 /* TestApi.swift in Sources */,
@@ -717,9 +724,10 @@
 				E970D8911FB5B17B00A1CC52 /* BaseTableTableViewController.swift in Sources */,
 				E970D8991FB5B17B00A1CC52 /* RealmUtils.swift in Sources */,
 				E970D89E1FB5B17B00A1CC52 /* ToastTopView.swift in Sources */,
-				E9C72513203ECB0A002CE44B /* CollectionApi.swift in Sources */,
+				E9C72515203ECF42002CE44B /* CollectionApi.swift in Sources */,
 				E970D8921FB5B17B00A1CC52 /* BaseViewController.swift in Sources */,
 				E970D8A41FB5B17B00A1CC52 /* MainMenuViewController.swift in Sources */,
+				E9C7251B203F112F002CE44B /* RLMCollectionStatus.swift in Sources */,
 				E970D8871FB5B17B00A1CC52 /* AlertSuccessView.swift in Sources */,
 				E970D88D1FB5B17B00A1CC52 /* ProductApi.swift in Sources */,
 				E9C7250F203DF2B9002CE44B /* CollectionTableViewCell.swift in Sources */,

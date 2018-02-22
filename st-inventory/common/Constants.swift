@@ -35,7 +35,7 @@ struct Constants
     static let KEY_COLLECTION_ID:String = "collectionId"
     static let KEY_COLLECTION_NAME:String = "collectionNo"
     
-
+    static let KEY_PRODUCTS:String = "products"
     
     static let KEY_DESTINATION_ID:String = "destinationId"
     static let KEY_CODE:String = "code"
@@ -58,11 +58,17 @@ struct Constants
     static let KEY_STATUS_NAME:String = "statusName"
     static let KEY_STATUS_COMMENT:String = "statusComment"
     
+    static let KEY_ID:String = "id"
+    static let KEY_LABEL:String = "label"
+    
     static let KEY_METHOD:String = "method"
     static let KEY_CONTENT:String = "content"
     
     static let VALUE_TYPE:String = "Event"
     static let VALUE_METHOD:String = "create"
+    
+    static let PREDICATE_ID:String = "_id"
+    static let PREDICATE_COLLECTION_ID:String = "_collection_id"
     
     // MARK: - Api Status Back
     enum CompletionStatus

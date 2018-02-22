@@ -41,6 +41,7 @@ class SplashViewController: UIViewController
         }
         
         DestinationApi.fetchAll(completion: completion)
+        CollectionApi.fetchAll(completion: nil)
     }
     /*
     // MARK: - Navigation

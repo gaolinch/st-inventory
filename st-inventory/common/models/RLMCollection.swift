@@ -11,13 +11,11 @@ import RealmSwift
 
 class RLMCollection: Object
 {
-    @objc dynamic var _collection_id:String?
-    @objc dynamic var _status_name:String = "IDLE"
-    let _product_list:List<RLMProduct> = List<RLMProduct>()
-
+    @objc dynamic var _id:String = ""
+    @objc dynamic var _status_id:String?
+    
     override static func primaryKey() -> String?
     {
-        return "_collection_id"
+        return "_id"
     }
-
 }

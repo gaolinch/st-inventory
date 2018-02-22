@@ -10,16 +10,25 @@ import UIKit
 
 import RealmSwift
 
+import SVProgressHUD
+
 class CollectionTableViewController: BaseTableTableViewController
 {
-    
     // MARK: - Constants
     let CELL_IDENTIFIER:String = "CollectionTableViewCell"
+    
+    static let SEGUE_LIST_PRODUCTS:String = "SegueCollectionProducts"
     
     // MARK: - Class attributes
     var _list_collections:Results<RLMCollection>?
     
     var _list_collection_change_listener:NotificationToken?
+    
+    var _list_collection_test_change_listener:NotificationToken?
+    
+    var _selected_index:IndexPath?
+    
+    var _list_collections_test:Results<RLMCollectionProduct>?
     
     override func viewDidLoad()
     {
@@ -56,6 +65,48 @@ class CollectionTableViewController: BaseTableTableViewController
                     print("\(error)")
                 }
         }
+        
+        self._list_collections_test = RealmUtils.sharedInstance.getRealmPersistentParallel()!.objects(RLMCollectionProduct.self)
+        self._list_collection_test_change_listener = self._list_collections_test!.observe
+            {
+                [weak self] (changes: RealmCollectionChange) in
+                
+                switch changes
+                {
+                case .initial:
+                    print("intial")
+                case .update(_, _, let insertions, _):
+                    // Query results have changed, so apply them to the UITableView
+                    if insertions.count > 0
+                    {
+                        let indexInsertion:Int = insertions[0]
+                        
+                        let collectionProduct:RLMCollectionProduct = (self?._list_collections_test![indexInsertion])!
+                        
+                        var indexCollection:Int = 0
+                        
+                        for collection in (self?._list_collections)!
+                        {
+                            if collection._id == collectionProduct._collection_id
+                            {
+                                let indexPath:IndexPath = IndexPath(row: indexCollection, section: 0)
+                                
+                                self?.tableView.beginUpdates()
+                                self?.tableView.reloadRows(at: [indexPath], with: .fade)
+                                self?.tableView.endUpdates()
+                                
+                                break
+                            }
+                            
+                            indexCollection += 1
+                        }
+                    }
+
+                case .error(let error):
+                    // An error occurred while opening the Realm file on the background worker thread
+                    print("\(error)")
+                }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -72,12 +123,13 @@ class CollectionTableViewController: BaseTableTableViewController
         self._list_collection_change_listener = nil
     }
 
-    override func didReceiveMemoryWarning()
+    @IBAction func clickedBack(sender:UIBarButtonItem) -> Void
     {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        if self.tryLock()
+        {
+            self.navigationController!.popViewController(animated: true)
+        }
     }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int
@@ -109,17 +161,65 @@ class CollectionTableViewController: BaseTableTableViewController
         // Configure the cell...
         let collection:RLMCollection = self._list_collections![indexPath.row]
         
-        cell!.label_collection_id!.text = collection._collection_id!
-        cell!.label_status.text = "dsadasdas"
+        cell!.label_collection_id!.text = collection._id
+        
+        if collection._status_id != nil
+        {
+            cell!.label_status.isHidden = false
+            
+            let collectionStatus:RLMCollectionStatus? = RealmUtils.sharedInstance.getRealmPersistentParallel()!.object(ofType: RLMCollectionStatus.self, forPrimaryKey: collection._status_id)
+            
+            if collectionStatus != nil
+            {
+                cell!.label_status.text = collectionStatus!._label
+            }
+            else
+            {
+                cell!.label_status.isHidden = true
+            }
+        }
+        else
+        {
+            cell!.label_status.isHidden = true
+        }
+
+        let predicate:NSPredicate = NSPredicate(format: "\(Constants.PREDICATE_COLLECTION_ID) = %@", argumentArray: [collection._id])
+        let numProduct:Int = RealmUtils.sharedInstance.getRealmPersistentParallel()!.objects(RLMCollectionProduct.self).filter(predicate).count
+        
+        var numProductStr:String = NSLocalizedString("collection_num_product", comment: "")
+        numProductStr = numProductStr.replacingOccurrences(of: "NUM", with: "\(numProduct)")
+        
+        cell!.label_num_products.text = numProductStr
         
         return cell!
     }
-
-    @IBAction func clickedAdd(sender:UIBarButtonItem) -> Void
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         if self.tryLock()
         {
-            self.releaseLockWDelay()
+            self._selected_index = indexPath
+            
+            self.fetchProducts()
+        }
+    }
+
+    @IBAction func clickedRefresh(sender:UIBarButtonItem) -> Void
+    {
+        if self.tryLock()
+        {
+            SVProgressHUD.show(withStatus: NSLocalizedString("alert_refreshing", comment: ""))
+
+            let completion:(Constants.CompletionStatus) -> Void = {
+                
+                [weak self] (status:Constants.CompletionStatus) -> Void in
+                
+                self?.releaseLockWDelay()
+                
+                SVProgressHUD.dismiss()
+            }
+            
+            CollectionApi.fetchAll(completion: completion)
         }
     }
     // MARK: - Navigation
@@ -131,11 +231,10 @@ class CollectionTableViewController: BaseTableTableViewController
         let viewController:CollectionProductsTableViewController? = segue.destination as? CollectionProductsTableViewController
         if viewController != nil
         {
-            let indexPath:IndexPath?  = self.tableView.indexPathForSelectedRow
-            if indexPath != nil
+            if self._selected_index != nil
             {
-                let collection:RLMCollection = self._list_collections![indexPath!.row]
-                viewController?._collection_id = collection._collection_id
+                let collection:RLMCollection = self._list_collections![self._selected_index!.row]
+                viewController?._collection_id = collection._id
             }
         }
     }
@@ -150,5 +249,32 @@ class CollectionTableViewController: BaseTableTableViewController
         {
             return false
         }
+    }
+    
+    private func fetchProducts() -> Void
+    {
+        SVProgressHUD.show(withStatus: NSLocalizedString("alert_loading", comment: ""))
+        
+        let completion:(Constants.CompletionStatus) -> Void = {
+            
+            [weak self] (status:Constants.CompletionStatus) -> Void in
+            
+            if status == Constants.CompletionStatus.Success
+            {
+                self?.performSegue(withIdentifier: CollectionTableViewController.SEGUE_LIST_PRODUCTS, sender: nil)
+            }
+            else
+            {
+                self?.showSimpleAlert(message: NSLocalizedString("collection_no_product_fetched", comment: ""))
+            }
+            
+            self?.releaseLockWDelay()
+            
+            SVProgressHUD.dismiss()
+        }
+        
+        let collection:RLMCollection = self._list_collections![self._selected_index!.row]
+        
+        CollectionApi.fetchProducts(collectionId: collection._id, completion: completion)
     }
 }

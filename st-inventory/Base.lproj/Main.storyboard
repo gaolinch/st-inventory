@@ -59,7 +59,7 @@ Style Inventory</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="pM8-uU-uz0" kind="push" id="yfs-wm-VtY"/>
+                                            <segue destination="pM8-uU-uz0" kind="show" id="yfs-wm-VtY"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab1-2b-ax5">
@@ -78,7 +78,7 @@ Style Inventory</string>
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ARx-iw-IRU" kind="push" id="nYb-oc-KeN"/>
+                                            <segue destination="ARx-iw-IRU" kind="show" id="nYb-oc-KeN"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -158,7 +158,9 @@ Style Inventory</string>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Zy5-xC-8fP" kind="push" id="mqw-1g-ovt"/>
+                                    <outlet property="label_collection_id" destination="bAA-SQ-Gib" id="XF3-12-srQ"/>
+                                    <outlet property="label_num_products" destination="zEJ-gX-7UX" id="aZf-lI-JhD"/>
+                                    <outlet property="label_status" destination="Gde-85-2eQ" id="mQ5-7C-iLz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -168,13 +170,20 @@ Style Inventory</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Collections" id="wDj-Zp-K68">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back" id="tG2-sJ-fSR"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZbG-e4-FYC">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back" id="tG2-sJ-fSR">
                             <connections>
-                                <action selector="clickedAddWithSender:" destination="pM8-uU-uz0" id="ZTl-Pm-bwt"/>
+                                <action selector="clickedBackWithSender:" destination="pM8-uU-uz0" id="9hw-Y8-16O"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="ZbG-e4-FYC">
+                            <connections>
+                                <action selector="clickedRefreshWithSender:" destination="pM8-uU-uz0" id="Fwp-rR-fJL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Zy5-xC-8fP" kind="show" identifier="SegueCollectionProducts" id="Egh-2S-4ru"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTW-2u-9ZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,17 +192,17 @@ Style Inventory</string>
         <!--Collection Products-->
         <scene sceneID="IkG-Jw-0OP">
             <objects>
-                <viewController id="Zy5-xC-8fP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CollectionProductsTableViewController" id="Zy5-xC-8fP" customClass="CollectionProductsTableViewController" customModule="st_inventory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zNB-7s-pQp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rna-MB-AMj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rna-MB-AMj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CollectionTableViewCell" id="7PG-PR-47u" customClass="CollectionTableViewCell" customModule="st_inventory" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CollectionProductTableViewCell" id="7PG-PR-47u" customClass="CollectionProductTableViewCell" customModule="st_inventory" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7PG-PR-47u" id="Jdf-Zo-M2z">
@@ -214,6 +223,9 @@ Style Inventory</string>
                                                 <constraint firstItem="Ahf-xR-BRq" firstAttribute="top" secondItem="Jdf-Zo-M2z" secondAttribute="top" id="vCb-yv-xSo"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="label_sku" destination="Ahf-xR-BRq" id="7aw-ph-LKa"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -285,13 +297,21 @@ Style Inventory</string>
                         <viewLayoutGuide key="safeArea" id="H8H-6g-zJC"/>
                     </view>
                     <navigationItem key="navigationItem" title="Collection Products" id="7BL-F7-Zej">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back" id="eKb-hg-FY6"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back" id="eKb-hg-FY6">
+                            <connections>
+                                <action selector="clickedBackWithSender:" destination="Zy5-xC-8fP" id="VnG-6U-tke"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cds-bL-dDH">
                             <connections>
-                                <segue destination="NAE-H8-dpH" kind="push" id="V5r-Xa-ELL"/>
+                                <segue destination="NAE-H8-dpH" kind="show" id="RnD-n9-qTg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="button_status" destination="qnR-XF-TSj" id="P3n-M5-72A"/>
+                        <outlet property="table_view" destination="Rna-MB-AMj" id="w49-Nh-CTp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mcT-4R-QD6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -322,7 +342,7 @@ Style Inventory</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go"/>
                                         <connections>
-                                            <outlet property="delegate" destination="yzM-pf-lQP" id="sbT-tt-Ns0"/>
+                                            <outlet property="delegate" destination="NAE-H8-dpH" id="Yje-Qj-HzI"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -368,8 +388,16 @@ Style Inventory</string>
                         <viewLayoutGuide key="safeArea" id="NLJ-r9-JhT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add to collection" id="OL1-DN-Bqd">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back" id="xF4-yL-MwU"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="Back" id="xF4-yL-MwU">
+                            <connections>
+                                <action selector="clickedBackWithSender:" destination="NAE-H8-dpH" id="5Z7-io-SEa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="button_scan" destination="GPU-Js-7OL" id="vKG-rR-KbP"/>
+                        <outlet property="view_scanner_container" destination="pbh-gM-sLF" id="Cld-29-pPr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybK-9Q-MhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -525,7 +553,7 @@ Style Inventory</string>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Products" id="8HI-2N-Ae3">
                             <connections>
-                                <segue destination="oz8-ia-wAM" kind="push" identifier="SegueProductList" id="dcL-1b-R3d"/>
+                                <segue destination="oz8-ia-wAM" kind="show" identifier="SegueProductList" id="dcL-1b-R3d"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -536,7 +564,7 @@ Style Inventory</string>
                         <outlet property="view" destination="hzS-j4-ErK" id="Gtj-7j-Yaa"/>
                         <outlet property="view_hide_scanner" destination="ts5-vG-kym" id="raF-SR-A0H"/>
                         <outlet property="view_scanner_container" destination="Wkz-4v-crd" id="jOE-q1-pca"/>
-                        <segue destination="x49-mQ-R9s" kind="push" identifier="SegueToDestination" id="QlW-51-J6B"/>
+                        <segue destination="x49-mQ-R9s" kind="show" identifier="SegueToDestination" id="QlW-51-J6B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZO-f0-Nel" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -628,7 +656,7 @@ Style Inventory</string>
                     <connections>
                         <outlet property="button_scan" destination="tpY-EO-twq" id="MRw-QN-nPr"/>
                         <outlet property="view_scanner_container" destination="0nE-Xm-NTh" id="qWR-k9-WJe"/>
-                        <segue destination="qa4-72-5iZ" kind="push" identifier="SegueProductDetails" id="LQG-Xc-7ht"/>
+                        <segue destination="qa4-72-5iZ" kind="show" identifier="SegueProductDetails" id="LQG-Xc-7ht"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lbc-sX-2wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -662,7 +690,7 @@ Style Inventory</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <state key="normal" title="Destination"/>
                                                 <connections>
-                                                    <segue destination="x49-mQ-R9s" kind="push" id="7Gy-x2-5gl"/>
+                                                    <segue destination="x49-mQ-R9s" kind="show" id="7Gy-x2-5gl"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -948,15 +976,15 @@ Style Inventory</string>
             <objects>
                 <viewController storyboardIdentifier="RackViewController" id="yzM-pf-lQP" customClass="RackViewController" customModule="st_inventory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RKm-2F-OZf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koH-EL-J4C">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQ7-CL-A1L">
-                                <rect key="frame" x="37.5" y="8" width="300" height="42"/>
+                                <rect key="frame" x="37.5" y="28" width="300" height="42"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rack Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2rs-k7-aqH">
                                         <rect key="frame" x="8" y="8" width="284" height="25"/>
@@ -987,7 +1015,7 @@ Style Inventory</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QP5-Ck-ExO">
-                                <rect key="frame" x="137" y="281.5" width="100" height="40"/>
+                                <rect key="frame" x="137" y="313.5" width="100" height="40"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6iR-8e-ZUT"/>
@@ -1023,7 +1051,7 @@ Style Inventory</string>
                     <connections>
                         <outlet property="button_scan" destination="QP5-Ck-ExO" id="mLN-hx-Uvi"/>
                         <outlet property="view_scanner_container" destination="koH-EL-J4C" id="cco-4D-h1w"/>
-                        <segue destination="xVe-Bz-jSm" kind="push" identifier="SegueValidationFromRack" id="J9h-1Z-1bT"/>
+                        <segue destination="xVe-Bz-jSm" kind="show" identifier="SegueValidationFromRack" id="J9h-1Z-1bT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXi-UH-WNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1036,11 +1064,11 @@ Style Inventory</string>
             <objects>
                 <viewController storyboardIdentifier="DestinationViewController" id="x49-mQ-R9s" customClass="DestinationViewController" customModule="st_inventory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oN3-vp-yjf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-kf-egk">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
@@ -1122,7 +1150,7 @@ Style Inventory</string>
                                             <outlet property="label_title_type" destination="aGQ-Xe-JKa" id="1Wa-9g-MTb"/>
                                             <outlet property="label_type" destination="Ywm-cO-7S3" id="A54-NH-VR8"/>
                                             <outlet property="view_container" destination="dmM-bI-YlU" id="8hT-id-oiG"/>
-                                            <segue destination="jtd-HW-cOu" kind="push" id="nJj-3h-NiS"/>
+                                            <segue destination="jtd-HW-cOu" kind="show" id="nJj-3h-NiS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1132,7 +1160,7 @@ Style Inventory</string>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtb-C2-pf2">
-                                <rect key="frame" x="0.0" y="553" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="98s-WL-ocT"/>
@@ -1159,7 +1187,7 @@ Style Inventory</string>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="Barcode" id="OO6-03-EeK">
                             <connections>
-                                <segue destination="yzM-pf-lQP" kind="push" id="Ffp-Vu-UlS"/>
+                                <segue destination="yzM-pf-lQP" kind="show" id="Ffp-Vu-UlS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1170,18 +1198,18 @@ Style Inventory</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndk-JA-F0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Nev-cL-RMr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="902"/>
+            <point key="canvasLocation" x="3026" y="885"/>
         </scene>
         <!--Select Location-->
         <scene sceneID="JLg-E8-YY2">
             <objects>
                 <viewController storyboardIdentifier="LocationViewController" id="jtd-HW-cOu" customClass="LocationViewController" customModule="st_inventory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yvd-Sf-Kcg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e8W-pL-Ktt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationTableViewCell" id="WeI-Qp-Z44" customClass="LocationTableViewCell" customModule="st_inventory" customModuleProvider="target">
@@ -1262,7 +1290,7 @@ Style Inventory</string>
                                             <outlet property="label_title_code" destination="skv-3t-bs2" id="c5V-S6-POs"/>
                                             <outlet property="label_title_name" destination="fPl-BG-FBC" id="mm3-Ok-QHx"/>
                                             <outlet property="view_container" destination="rHY-7L-GFx" id="om3-ew-SCf"/>
-                                            <segue destination="xVe-Bz-jSm" kind="push" id="0nX-aM-JHa"/>
+                                            <segue destination="xVe-Bz-jSm" kind="show" id="0nX-aM-JHa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1272,16 +1300,16 @@ Style Inventory</string>
                                 </connections>
                             </tableView>
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcT-VQ-hkp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSC-hh-CpZ">
-                                        <rect key="frame" x="85.5" y="286.5" width="204" height="31.5"/>
+                                        <rect key="frame" x="85.5" y="308.5" width="204" height="31.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fB5-cT-gVV">
-                                        <rect key="frame" x="169" y="334" width="37" height="37"/>
+                                        <rect key="frame" x="169" y="356" width="37" height="37"/>
                                         <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -1315,7 +1343,7 @@ Style Inventory</string>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="dEB-Jb-Qws">
                             <connections>
-                                <segue destination="xVe-Bz-jSm" kind="push" identifier="SegueSkipToValidation" id="Law-CX-mpa"/>
+                                <segue destination="xVe-Bz-jSm" kind="show" identifier="SegueSkipToValidation" id="Law-CX-mpa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1334,11 +1362,11 @@ Style Inventory</string>
             <objects>
                 <viewController storyboardIdentifier="ValidationViewController" id="xVe-Bz-jSm" customClass="ValidationViewController" customModule="st_inventory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XsU-ag-etY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1lV-a9-1aE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRi-LF-mcO">
                                         <rect key="frame" x="16" y="16" width="343" height="368"/>
@@ -1464,7 +1492,7 @@ Style Inventory</string>
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ed6-O9-tAz">
-                                <rect key="frame" x="0.0" y="553" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAu-yG-olp">
                                         <rect key="frame" x="8" y="8" width="359" height="34"/>
@@ -1536,7 +1564,7 @@ Style Inventory</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="J9h-1Z-1bT"/>
-        <segue reference="7Gy-x2-5gl"/>
+        <segue reference="QlW-51-J6B"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
