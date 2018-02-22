@@ -21,11 +21,21 @@ struct Constants
     static let KEY_APP_TOKEN:String = "x-styletribute-token"
     static let HEADER_APP_TOKEN:String = "style123"
     
+    
+    static let KEY_APP_TOKEN_COLLECTION:String = "X-Styletribute-Admin-Token"
+    static let HEADER_APP_TOKEN_COLLECTION:String = "schnitzelbrot"
+    
     // MARK: - Notifications
     static let NOTIFICATION_UPDATE_PRODUCT_LIST:NSNotification.Name = NSNotification.Name(rawValue: "NOTIFICATION_UPDATE_PRODUCT_LIST")
     
     // MARK: - Keys
     static let KEY_DATA:String = "data"
+    
+    
+    static let KEY_COLLECTION_ID:String = "collectionId"
+    static let KEY_COLLECTION_NAME:String = "collectionNo"
+    
+
     
     static let KEY_DESTINATION_ID:String = "destinationId"
     static let KEY_CODE:String = "code"
