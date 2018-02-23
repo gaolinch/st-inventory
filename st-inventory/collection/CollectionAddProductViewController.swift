@@ -30,6 +30,31 @@ class CollectionAddProductViewController: BaseScanViewController
         // Dispose of any resources that can be recreated.
     }
     
+    override func captureSessionMedataFound(data:String) -> Void
+    {
+        super.captureSessionMedataFound(data: data)
+     
+        let completion:(Constants.CompletionStatus) -> Void = {
+            
+            [weak self] (status:Constants.CompletionStatus) -> Void in
+            
+            if status == Constants.CompletionStatus.Success
+            {
+                self?.navigationController?.popViewController(animated: true)
+            }
+            else
+            {
+                self?.showSimpleAlert(message: NSLocalizedString("collection_product_not_added", comment: ""))
+            }
+            
+            self?.releaseLock()
+            
+            SVProgressHUD.dismiss()
+        }
+        
+        CollectionApi.addProduct(sku: data, collectionId: self._collection_id!, completion: completion)
+    }
+    
     override func enteredTextfieldData(data:String) -> Void
     {
         if self.tryLock()

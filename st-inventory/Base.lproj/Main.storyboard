@@ -329,10 +329,15 @@ Style Inventory</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mae-gs-7LG" userLabel="View hide scanner">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBM-kh-xdn">
                                 <rect key="frame" x="38" y="8" width="300" height="42"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Rack Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MtO-xW-niw">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Product SKU" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MtO-xW-niw">
                                         <rect key="frame" x="8" y="8" width="284" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -370,6 +375,7 @@ Style Inventory</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Scan"/>
                                 <connections>
+                                    <action selector="clickedStartScanWithSender:" destination="NAE-H8-dpH" eventType="touchUpInside" id="hs2-4W-3tf"/>
                                     <action selector="clickedStartScanWithSender:" destination="yzM-pf-lQP" eventType="touchUpInside" id="mUn-9U-VNV"/>
                                 </connections>
                             </button>
@@ -396,12 +402,13 @@ Style Inventory</string>
                     </navigationItem>
                     <connections>
                         <outlet property="button_scan" destination="GPU-Js-7OL" id="vKG-rR-KbP"/>
+                        <outlet property="view_hide_scanner" destination="mae-gs-7LG" id="T5c-rw-2MM"/>
                         <outlet property="view_scanner_container" destination="pbh-gM-sLF" id="Cld-29-pPr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybK-9Q-MhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2774" y="-734"/>
+            <point key="canvasLocation" x="2773.5999999999999" y="-734.48275862068976"/>
         </scene>
         <!--Scanner-->
         <scene sceneID="odf-9W-Go9">
