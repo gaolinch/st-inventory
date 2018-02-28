@@ -11,7 +11,7 @@ import RealmSwift
 
 class RLMCollectionStatus: Object
 {
-    @objc dynamic var _id:String = "0"
+    @objc dynamic var _id:Int = 0
     @objc dynamic var _code:String = ""
     @objc dynamic var _label:String = ""
     @objc dynamic var _is_active:Bool = true

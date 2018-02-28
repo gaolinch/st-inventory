@@ -12,7 +12,7 @@ import RealmSwift
 class RLMCollection: Object
 {
     @objc dynamic var _id:String = ""
-    @objc dynamic var _status_id:String?
+    @objc dynamic var _status_id:Int = 0
     
     override static func primaryKey() -> String?
     {

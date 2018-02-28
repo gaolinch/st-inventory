@@ -61,6 +61,8 @@ struct Constants
     static let KEY_ID:String = "id"
     static let KEY_LABEL:String = "label"
     
+    static let KEY_ACTIVE:String = "active"
+
     static let KEY_METHOD:String = "method"
     static let KEY_CONTENT:String = "content"
     

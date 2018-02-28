@@ -55,9 +55,10 @@ class CollectionApi: NSObject
                                     if statusJson != JSON.null
                                     {
                                         let rlmCollectionStatus:RLMCollectionStatus = RLMCollectionStatus()
-                                        rlmCollectionStatus._id = statusJson![Constants.KEY_ID].stringValue
+                                        rlmCollectionStatus._id = statusJson![Constants.KEY_ID].intValue
                                         rlmCollectionStatus._label = statusJson![Constants.KEY_LABEL].stringValue
                                         rlmCollectionStatus._code = statusJson![Constants.KEY_CODE].stringValue
+                                        rlmCollectionStatus._is_active = statusJson![Constants.KEY_ACTIVE].boolValue
                                         
                                         realm.add(rlmCollectionStatus, update: true)
                                         
@@ -220,14 +221,23 @@ class CollectionApi: NSObject
                     print(json as Any)
                     if json != JSON.null
                     {
-                        let data:[JSON]? = json![Constants.KEY_PRODUCTS].array
+                        let data:[JSON]? = json!.array
                         if data != nil
                         {
                             let realm:Realm = RealmUtils.sharedInstance.getRealmPersistentParallel()!
                             
                             try! realm.write
                             {
-
+                                for statusJson:JSON in data!
+                                {
+                                    let collectionStatus:RLMCollectionStatus = RLMCollectionStatus()
+                                    collectionStatus._id = statusJson[Constants.KEY_ID].intValue
+                                    collectionStatus._code = statusJson[Constants.KEY_CODE].stringValue
+                                    collectionStatus._label = statusJson[Constants.KEY_LABEL].stringValue
+                                    collectionStatus._is_active = statusJson[Constants.KEY_ACTIVE].boolValue
+                                    
+                                    realm.add(collectionStatus, update: true)
+                                }
                             }
                         }
                     }
@@ -266,7 +276,7 @@ class CollectionApi: NSObject
             case .addProduct(let sku, let collectionId):
                 return "/admin/collection/assign/\(sku)/\(collectionId)"
             case .fetchStatuses:
-                return "/admin/collections"
+                return "/admin/collectionstatuses"
             }
         }
         
