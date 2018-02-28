@@ -152,7 +152,7 @@ class CollectionApi: NSObject
     
     static func addProduct(sku:String, collectionId:String, completion: @escaping (Constants.CompletionStatus)->Void) -> Void
     {
-        let routerRequest:URLRequestConvertible = Router.fetchProducts(collectionId: collectionId)
+        let routerRequest:URLRequestConvertible = Router.addProduct(sku: sku, collectionId: collectionId)
         
         let dataRequest:DataRequest = Alamofire.request(routerRequest)
         dataRequest.responseJSON(completionHandler:
@@ -171,7 +171,7 @@ class CollectionApi: NSObject
                     print(json as Any)
                     if json != JSON.null
                     {
-                        let data:[JSON]? = json![Constants.KEY_PRODUCTS].array
+                        let data:JSON? = json!
                         if data != nil
                         {
                             let realm:Realm = RealmUtils.sharedInstance.getRealmPersistentParallel()!
@@ -252,7 +252,8 @@ class CollectionApi: NSObject
         case addProduct(sku:String, collectionId:String)
         case fetchStatuses()
         
-        static let baseURLString = Constants.BASE_URL + ""
+        //static let baseURLString = Constants.BASE_URL + ""
+        static let baseURLString = "https://api.styletribute.com" + ""
         
         var method: HTTPMethod {
             switch self {
